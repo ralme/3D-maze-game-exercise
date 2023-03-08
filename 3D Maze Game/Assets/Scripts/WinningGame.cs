@@ -1,27 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WinningGame : MonoBehaviour
 {
-    public GameObject UIObject;
+    public GameObject winningMessage;
+    public Text timeElapsed;
+    public static bool reachedTrigger = false;
 
     void Start()
     {
-        UIObject.SetActive(false);
+        winningMessage.SetActive(false);
     }
 
     void OnTriggerEnter(Collider player)
     {
         if(player.tag == "Player")
         {
-            UIObject.SetActive(true);
+            reachedTrigger = true;
+            winningMessage.SetActive(true);
+            timeElapsed.text = "You took " + Timer.minutes + " minute(s) and " + Timer.seconds + " seconds.";
         }
-    }
-
-    void OnTriggerExit(Collider player)
-    {
-        UIObject.SetActive(false);
-        Destroy(gameObject); //Destroys the object that has this script
     }
 }
