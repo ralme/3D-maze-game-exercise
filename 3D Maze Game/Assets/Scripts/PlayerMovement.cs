@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(!WinningGame.reachedTrigger)
+        if(!FinishGame.reachedTrigger)
         {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {

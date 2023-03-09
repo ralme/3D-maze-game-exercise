@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WinningGame : MonoBehaviour
+public class FinishGame : MonoBehaviour
 {
     public GameObject winningMessage;
     public Text timeElapsed;

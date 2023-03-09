@@ -12,12 +12,15 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-            if (PlayerMovement.playerMoving && !WinningGame.reachedTrigger)
+        if (PlayerMovement.playerMoving && !FinishGame.reachedTrigger)
                 timeCount += Time.deltaTime;
 
-            minutes = ((int) timeCount / 60).ToString("00");
-            seconds = (timeCount % 60).ToString("00");
+        minutes = ((int) timeCount / 60).ToString("00");
+        seconds = (timeCount % 60).ToString("00");
 
-            timerText.text = "Time: " + minutes + ":" + seconds;
+        timerText.text = "Time: " + minutes + ":" + seconds;
+
+        if(FinishGame.reachedTrigger)
+            timerText.gameObject.SetActive(false);
     }
 }
